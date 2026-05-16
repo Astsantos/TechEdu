@@ -217,10 +217,9 @@ header .fa-search{
     gap: 2rem;
     margin-top: 2rem;
 }
-
-.course-card{
-    width: 160px;
-    height: 160px;
+.course-card{ /*muda o tamanho*/
+    width: 200px;
+    height: 200px;
     background: #7E3737;
     border-radius: 1.5rem;
     display: flex;
@@ -232,13 +231,61 @@ header .fa-search{
     cursor: pointer;
     transition: .3s;
 }
+.course-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    color: #333;
+    text-decoration: none;
+}
+.course-item span{
+    font-size: 1.5rem;
+}
 
+/*descrição*/
 
+.course-details{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+.course-image{
+    width: 700px;
+    height: 500px;
+    background: #7E3737;
+    border-radius: 2rem;
+}
 
+/*texto desc*/
 
+.course-info{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.course-info h2{
+    font-size: 5rem;
+    color: #333;
+    line-height: 1.1;
+}
 
+/*but*/
 
-
+.bnt-course{
+    width: 220px;
+    text-align: center;
+    background: #ddd;
+    color: #222;
+    padding: 1.8rem;
+    border-radius: 1.5rem;
+    font-size: 2rem;
+}
+.bnt-course:hover{
+    background: #7E3737;
+    color: #ddd;    
+}
 
 
 
