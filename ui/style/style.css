@@ -1,0 +1,346 @@
+:root{
+    --red: #7E3737;
+}
+
+*{
+    margin: 0; padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    width:100%;
+    min-height:100vh;
+    padding:12rem 3rem 4rem;
+}
+
+/* botão*/
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 9rem;
+    background: #333;
+    color: #fff;
+    padding: .9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background: var(--red);
+}
+
+/*header parte de cima*/
+
+header{
+    top: 0; left: 0; right: 0;
+    background-color: #7E3737;
+    padding: 3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo{
+    font-size: 3rem;
+    color: #fdfdfd;
+    font-weight: bolder;
+}
+
+ header .logo span{
+    color:var(--red);
+ }
+
+ /*nav barra*/
+
+ header .navbar a{
+    font-size: 2rem;
+    gap: 1rem;
+    padding:0 1.5rem;
+    color: #fdfdfd; 
+ }
+
+ header .navbar a:hover{
+     color:var(--white);
+ }
+
+ /*icones */
+
+ header .icons a{
+    font-size: 5rem;
+    color: #ffffff;
+    margin-left: 2rem;
+ }
+
+ header .icons a:hover{
+    color:var(--white);
+ }
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size: 3rem;
+    color: #333;
+    border-radius: .5rem;
+    padding: .18rem .6rem ;
+    cursor: pointer;
+    border: .1rem solid rgba(0, 0, 0, .3);
+    display: none;
+}
+
+/*pesquisar*/
+
+.search-box{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 2rem;
+    padding: 0.5rem 4rem;
+    border: 0.1rem solid #ddd;
+}
+
+.search-txt{
+    border: none;
+    outline: none;
+    background: none;
+    padding: 8px;
+    font-size: 16px;
+    width: 180px;
+}
+
+.search-box a{
+    color: #ff69b4;
+    font-size: 18px;
+    cursor: pointer;
+}
+header .fa-search{
+  font-size: 1.5rem;
+  margin-left: 2rem;  
+}
+
+/* container */
+
+.home{
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 3rem;
+}
+
+.home .content{
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* barra */
+
+.menu-links{
+    background: #873939;
+    border-radius: 1.5rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.menu-links a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.menu-links a i{
+    font-size: 2rem;
+}
+
+
+/*lista de cursos*/
+
+.courses{
+    width: 100%;
+    margin-top: 20rem;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.top-bar h3{
+    font-size: 2rem;
+    color: #333;
+}
+
+.top-bar button{
+    width: 7rem;
+    border-radius: 2rem;
+    background: #fff;
+    box-shadow: 0 .3rem .8rem rgba(0,0,0,.08);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+
+/*cards*/
+
+.course-list{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.course-card{ /*muda o tamanho*/
+    width: 200px;
+    height: 200px;
+    background: #7E3737;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 1.8rem;
+    
+    cursor: pointer;
+    transition: .3s;
+}
+.course-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    color: #333;
+    text-decoration: none;
+}
+.course-item span{
+    font-size: 1.5rem;
+}
+
+/*descrição*/
+
+.course-details{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+.course-image{
+    width: 700px;
+    height: 500px;
+    background: #7E3737;
+    border-radius: 2rem;
+}
+
+/*texto desc*/
+
+.course-info{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.course-info h2{
+    font-size: 5rem;
+    color: #333;
+    line-height: 1.1;
+}
+
+/*but*/
+
+.bnt-course{
+    width: 220px;
+    text-align: center;
+    background: #ddd;
+    color: #222;
+    padding: 1.8rem;
+    border-radius: 1.5rem;
+    font-size: 2rem;
+}
+.bnt-course:hover{
+    background: #7E3737;
+    color: #ddd;    
+}
+
+
+
+
+
+
+
+
+
+/* responsivel*/
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 2rem;
+    }
+    section{
+        padding: 2rem;
+    }
+   
+}
+
+@media (max-width:768px){
+    header .fa-bars{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: #eee;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    }
+        header #toggler:checked ~.navbar{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+    header .navbar a{
+      margin: 1.5rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: .1rem solid rgba(0, 0, 0, .1);
+      display: block;  
+    }
+
+}
+
+@media (max-width:450px){
+    html{
+    font-size: 50%;}
+    .heading{
+      font-size: 3rem;  
+    }
+}
