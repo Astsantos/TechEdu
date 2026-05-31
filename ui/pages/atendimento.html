@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
- 
+
 <header>
 
 <input type="checkbox" id="toggler">
@@ -52,24 +52,24 @@
     <h3>Atendimento</h3>
         <button> <i class="fas fa-filter"></i></button>
 </div>
-
-<div class="chat-area">   
-    <div class="chat-sidebar">
+<p id="status"></p>
+<div class="chat-area"> 
         <div class="contact-box"></div>
     </div>
     <div class="chat-main">
+        <div id="historic"></div> 
         <div class="chat-input">
             <div class="tools">
                 <i class="fas fa-less-than"></i>
                 <i class="far fa-square"></i>
                 <i class="fas fa-download"></i>
             </div>
-            <input type="text" placeholder="Digite a mensagem">
-            <i class="fas fa-paper-plane send"></i>
+            <input type="text" placeholder="Digite a mensagem" id="message-input">
+            <button id="btn-submit" class="btn-submit" onclick="sendMessage()">Enviar</button>
         </div>
     </div>
 </div>
 
- 
+<script src="main.js"></script>
 </body>
 </html> 
