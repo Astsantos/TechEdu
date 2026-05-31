@@ -1,4 +1,4 @@
-/* ── RESPOSTAS AUTOMÁTICAS ── */
+/*respostas*/
 const respostas = {
     'oi':        'Olá! Bem-vindo ao suporte da TechEdu. Como posso te ajudar?',
     'olá':       'Olá! Bem-vindo ao suporte da TechEdu. Como posso te ajudar?',
@@ -18,7 +18,9 @@ const respostas = {
     'obrigado':  'Por nada! Estamos sempre à disposição 😊',
     'obrigada':  'Por nada! Estamos sempre à disposição 😊',
 };
- 
+
+/*função que pega as respostas*/
+
 function getResposta(texto) {
     const lower = texto.toLowerCase();
     for (const chave in respostas) {
@@ -27,7 +29,7 @@ function getResposta(texto) {
     return 'Não entendi sua dúvida. Tente perguntar sobre cursos, matrícula, preços ou certificados!';
 }
  
-/* ── ENVIA MENSAGEM ── */
+/*envia as mensagens*/
 function sendMessage() {
     const input = document.getElementById('message-input');
     const text  = input.value.trim();
@@ -41,7 +43,7 @@ function sendMessage() {
     }, 600);
 }
  
-/* ── ENTER PARA ENVIAR ── */
+/*envia*/
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('message-input');
     if (input) {
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     appendBotMessage('Olá! 👋 Bem-vindo ao suporte da TechEdu. Como posso te ajudar?');
 });
  
-/* ── RENDERIZA MENSAGENS ── */
+/*renderiza*/
 function appendUserMessage(text) {
     const historic = document.getElementById('historic');
     const div = document.createElement('div');
@@ -76,7 +78,7 @@ function appendBotMessage(text) {
     scrollBottom();
 }
  
-/* ── HELPERS ── */
+/*coisas auxiliares*/
 function scrollBottom() {
     const h = document.getElementById('historic');
     if (h) h.scrollTop = h.scrollHeight;
