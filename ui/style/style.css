@@ -143,6 +143,12 @@ section{
     flex-direction:column;
 }
 
+.register-social{
+    display:flex;
+    flex-direction:center;
+    gap:90px;
+}
+
 .register-label{
     text-align:left;
     font-size:16px;
@@ -191,9 +197,6 @@ section{
     border-radius:5px;
     cursor:pointer;
     transition:.3s;
-
-    display:inline-block;
-    margin:10px;
 }
 
 .register-btn1:hover{
