@@ -10,44 +10,25 @@
 <body>
 
 <div class="login-page">
-  <div class="login-card">
-    <h2 class="login-title">Bem-vindo de volta</h2>
-
-    <div class="login-form">
-      <label class="login-label">E-mail:</label>
-      <input class="login-input" type="email" id="login-email">
-      <label class="login-label">Senha:</label>
-      <input class="login-input" type="password" id="login-senha">
-      <a href="#" class="login-forgot">Esqueceu a senha?</a>
-      <p id="login-erro" style="color:red; display:none;"></p>
-      <button class="login-btn" onclick="fazerLogin()">Continue »</button>
-      <div class="login-divider"><span>OR</span></div>
+    <div class="login-card">
+        <h2 class="login-title">Bem-vindo de volta</h2>
+        <form class="login-form" action="index.html">
+            <label class="login-label">E-mail:</label>
+            <input class="login-input" type="email">
+            <label class="login-label">Senha:</label>
+            <input class="login-input" type="password">
+            <a href="#" class="login-forgot">Esqueceu a senha?</a>
+           <button class="login-btn" type="submit">Continue »</button>
+            <div class="login-divider">
+                <span>OR</span>
+            </div>
+            
+        </form>
+        <form action="criarconta.html">
+                <button class="login-btn" type="submit">Criar uma conta »</button>
+            </form>
     </div>
-
-    <form action="criarconta.html">
-      <button class="login-btn" type="submit">Criar uma conta »</button>
-    </form>
-  </div>
 </div>
-
-<script src="api.js"></script>
-<script>
-async function fazerLogin() {
-  const email = document.getElementById('login-email').value;
-  const senha = document.getElementById('login-senha').value;
-  const erro  = document.getElementById('login-erro');
-
-  const resultado = await loginUsuario(email, senha);
-
-  if (resultado.id) {
-    localStorage.setItem('usuario', JSON.stringify(resultado));
-    window.location.href = 'areaaluno.html';
-  } else {
-    erro.style.display = 'block';
-    erro.textContent = resultado.error || 'Email ou senha incorretos.';
-  }
-}
-</script>
-
+  
 </body>
 </html>
