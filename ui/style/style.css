@@ -894,13 +894,20 @@ background:#5e2525;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
  
 .matricula-box h2 {
     text-align: center;
-    margin-bottom: 2.5rem;
     font-weight: 500;
+}
+
+/*nome em cima*/
+
+.matricula-content{
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
 }
  
 /*grid de campos*/
@@ -908,16 +915,16 @@ background:#5e2525;
 .matricula-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     flex: 1;
-    align-content: space-between;
 }
  
 /*campos*/
+
 .field {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    margin-bottom: .5rem;
 }
  
 .field label {
@@ -931,11 +938,14 @@ background:#5e2525;
     font-size: 1.6rem;
     background: white;
 }
- 
+
+ /*campo um do lado do outro*/
+
 .field-row {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
-    align-items: flex-end;
+    font-size: 1.8rem;
 }
  
 .field--grow {
@@ -945,7 +955,6 @@ background:#5e2525;
 .matricula-footer {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
 }
  
 .btn-continue {
@@ -962,8 +971,6 @@ background:#5e2525;
 .btn-continue:hover {
     background: #f0f0f0;
 }
-
-
 
 
 
