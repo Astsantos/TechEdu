@@ -42,9 +42,7 @@ export const getCursoById = async (req: Request, res: Response) => {
     }
     res.json({
       ...curso,
-      matriz_curricular: curso.matriz_curricular
-        ? Buffer.from(curso.matriz_curricular).toString('base64')
-        : null,
+      matriz_curricular: curso.matriz_curricular ?? null,
     });
   } catch (error) {
     res.status(500).json({ error: 'Falha ao buscar curso.' });

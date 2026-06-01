@@ -3,6 +3,7 @@ const respostas = {
     'oi':        'Olá! Bem-vindo ao suporte da TechEdu. Como posso te ajudar?',
     'olá':       'Olá! Bem-vindo ao suporte da TechEdu. Como posso te ajudar?',
     'ola':       'Olá! Bem-vindo ao suporte da TechEdu. Como posso te ajudar?',
+<<<<<<< HEAD
     'curso':     'Temos cursos de Programação, Design, Marketing Digital e muito mais! Acesse a página de cursos para ver todos.',
     'cursos':    'Temos cursos de Programação, Design, Marketing Digital e muito mais! Acesse a página de cursos para ver todos.',
     'preço':     'Os preços variam por curso. Acesse a página do curso desejado para ver o valor.',
@@ -17,6 +18,26 @@ const respostas = {
     'tchau':     'Até logo! Qualquer dúvida é só chamar 😊',
     'obrigado':  'Por nada! Estamos sempre à disposição 😊',
     'obrigada':  'Por nada! Estamos sempre à disposição 😊',
+=======
+    'quais cursos vocês tem?':     'Temos cursos de Programação Front-End, Programação Back-End, Design, Marketing Digital e muito mais! Acesse a página de cursos para ver todos.',
+    'cursos':    'Temos cursos de Programação Front-End, Programação Back-End, Design, Marketing Digital e muito mais! Acesse a página de cursos para ver todos.',
+    'qual os horarios de atendimento?': 'Nosso atendimento é de segunda a sexta, das 9h às 18h.',
+    'qual os horarios de atendimento': 'Nosso atendimento é de segunda a sexta, das 9h às 18h.',
+    'qual os horarios das turmas?': 'As turmas variam por curso. Acesse a página do curso desejado para ver os horários disponíveis.',
+    'qual os horarios das turmas': 'As turmas variam por curso. Acesse a página do curso desejado para ver os horários disponíveis.',
+    'como me matriculo': 'Para se matricular, crie uma conta e acesse a página do curso desejado!',
+    'como me matrículo?': 'Para se matricular, crie uma conta e acesse a página do curso desejado!',
+    'esses cursos possuem certificado': 'Sim, todos os cursos emitem certificado ao final!',
+    'esses cursos possuem certificado?': 'Sim, todos os cursos emitem certificado ao final!',
+    'suporte':   'Estou aqui para ajudar! Me diga qual é a sua dúvida.',
+    'qual o contato':   'Você pode nos contatar pelo e-mail: suporte@techedu.com.br',
+    'qual o contato?':   'Você pode nos contatar pelo e-mail: suporte@techedu.com.br',
+    'qual o email de vocês':     'Nosso e-mail é: suporte@techedu.com.br',
+    'qual o email de vocês?':     'Nosso e-mail é: suporte@techedu.com.br',
+    'tchau':     'Até logo! Qualquer dúvida é só chamar ',
+    'obrigado':  'Por nada! Estamos sempre à disposição ',
+    'obrigada':  'Por nada! Estamos sempre à disposição ',
+>>>>>>> main
 };
 
 /*função que pega as respostas*/
@@ -92,6 +113,7 @@ function escapeHtml(str) {
     return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
  
+<<<<<<< HEAD
 
 
 
@@ -212,3 +234,5 @@ function escapeHtml(str) {
        // .replace(/\n/g, '<br>');
 //} 
  
+=======
+>>>>>>> main
