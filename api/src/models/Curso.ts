@@ -1,19 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Matricula } from './Matricula';
 
-@Entity()
+@Entity('curso')
 export class Curso {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
-  @Column({ length: 50 })
-  nome_curso: string;
+  @Column({ length: 100 })
+  nome_curso!: string;
 
   @Column({ length: 255 })
-  descricao_curso: string;
+  descricao_curso!: string;
 
   @Column({ type: 'int' })
-  carga_horaria: number;
+  carga_horaria!: number;
 
-  @Column({ type: 'blob' })
-  matriz_curricular: Buffer;  // binary data
+  @Column({ type: 'blob', nullable: true })
+  matriz_curricular!: Buffer;
+
+  @OneToMany(() => Matricula, (matricula) => matricula.curso)
+  matriculas!: Matricula[];
 }

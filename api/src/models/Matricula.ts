@@ -1,24 +1,28 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, ManyToMany } from 'typeorm';
-import { Curso } from './Curso';
-import { Usuario } from './Usuario';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from "typeorm";
+import { Curso } from "./Curso";
+import { Usuario } from "./Usuario";
 
-@Entity()
+@Entity("matricula")
 export class Matricula {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
-  @Column({ type: 'date' })
-  data: Date; // ou string 'YYYY-MM-DD' dependendo da necessidade
+  @Column({ type: "date" })
+  data!: string; // formato 'YYYY-MM-DD'
 
-  @Column()
-  cursoId: number; // chave estrangeira explícita
+  // Chave estrangeira para Curso
+  @ManyToOne(() => Curso, (curso) => curso.matriculas, { onDelete: "CASCADE" })
+  @JoinColumn({ name: "cursoId" })
+  curso!: Curso;
 
-  @Column()
-  usuarioId: number;
-
-  @ManyToOne(() => Curso, (curso) => curso.matriculas, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'cursoId' })
-  curso: Curso;
-
-  @ManyToMany
+  // Chave estrangeira para Usuario
+  @ManyToOne(() => Usuario, (usuario) => usuario.matriculas, { onDelete: "CASCADE" })
+  @JoinColumn({ name: "usuarioId" })
+  usuario!: Usuario;
 }

@@ -1,25 +1,26 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { Curso } from './Curso';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+} from "typeorm";
+import { Matricula } from "./Matricula";
 
-@Entity('usuario')
+@Entity("usuario")
 export class Usuario {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column({ length: 50 })
-  nome: string;
+  nome!: string;
 
-  @Column({ length: 255 })
-  email: string;
+  @Column({ length: 255, unique: true })
+  email!: string;
 
   @Column()
-  senha: string;
+  senha!: string;
 
-  @ManyToMany(() => Curso, (curso) => curso.usuarios)
-  @JoinTable({
-    name: 'Matricula',               // junction table name
-    joinColumn: { name: 'usuario_id', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'curso_id', referencedColumnName: 'id' }
-  })
-  cursos: Curso[];
+  // Um usuário pode ter várias matrículas
+  @OneToMany(() => Matricula, (matricula) => matricula.usuario)
+  matriculas!: Matricula[];
 }

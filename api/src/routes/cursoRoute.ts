@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as cursoController from '../controllers/cursoController';
 import { uploadFile } from '../middleware/upload';
-import { validateCurso } from '../middleware/validateCurso';
+import { validateCurso } from '../middleware/validarCurso';
 
 const router = Router();
 

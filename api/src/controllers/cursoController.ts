@@ -26,57 +26,57 @@ export const createCurso = async (req: Request, res: Response) => {
 export const getAllCursos = async (req: Request, res: Response) => {
   try {
     const cursos = await cursoService.getAllCursos();
-    // Don't send binary data by default – convert to base64 or omit
     const cursosWithoutFile = cursos.map(({ matriz_curricular, ...rest }) => rest);
     res.json(cursosWithoutFile);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch cursos' });
+    res.status(500).json({ error: 'Falha ao buscar cursos.' });
   }
 };
 
 export const getCursoById = async (req: Request, res: Response) => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params['id'] as string);
     const curso = await cursoService.getCursoById(id);
     if (!curso) {
       return res.status(404).json({ error: 'Curso não encontrado.' });
     }
-    // Send file as base64 if needed
     res.json({
       ...curso,
-      file: curso.matriz_curricular.toString('base64'), // or send as Buffer with proper Content-Type
+      matriz_curricular: curso.matriz_curricular
+        ? Buffer.from(curso.matriz_curricular).toString('base64')
+        : null,
     });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch curso' });
+    res.status(500).json({ error: 'Falha ao buscar curso.' });
   }
 };
 
 export const updateCurso = async (req: Request, res: Response) => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params['id'] as string);
     const updateData: any = { ...req.body };
     if (req.file) {
-      updateData.file = req.file.buffer;
+      updateData.matriz_curricular = req.file.buffer;
     }
     const updated = await cursoService.updateCurso(id, updateData);
     if (!updated) {
-      return res.status(404).json({ error: 'Curso not found' });
+      return res.status(404).json({ error: 'Curso não encontrado.' });
     }
     res.json(updated);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to update curso' });
+    res.status(500).json({ error: 'Falha ao atualizar curso.' });
   }
 };
 
 export const deleteCurso = async (req: Request, res: Response) => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params['id'] as string);
     const deleted = await cursoService.deleteCurso(id);
     if (!deleted) {
-      return res.status(404).json({ error: 'Curso not found' });
+      return res.status(404).json({ error: 'Curso não encontrado.' });
     }
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({ error: 'Failed to delete curso' });
+    res.status(500).json({ error: 'Falha ao deletar curso.' });
   }
 };
