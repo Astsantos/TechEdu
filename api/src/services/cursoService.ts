@@ -9,7 +9,12 @@ export const createCurso = async (data: {
   carga_horaria: number;
   matriz_curricular: Buffer;
 }) => {
-  const curso = cursoRepository.create(data);
+  const curso = cursoRepository.create({
+    nome_curso: data.nome_curso,
+    descricao_curso: data.descricao_curso,
+    carga_horaria: data.carga_horaria,
+    matriz_curricular: data.matriz_curricular.toString('base64'), // Buffer → string
+  });
   return await cursoRepository.save(curso);
 };
 

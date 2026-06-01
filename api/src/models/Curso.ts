@@ -1,23 +1,26 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Matricula } from './Matricula';
+import { Turma } from './Turma';
 
-@Entity('curso')
+@Entity('Curso')
 export class Curso {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ unsigned: true })
   id!: number;
 
-  @Column({ length: 100 })
+  @Column({ length: 200 })
   nome_curso!: string;
 
-  @Column({ length: 255 })
+  @Column({ type: 'text', nullable: true })
   descricao_curso!: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'smallint', unsigned: true })
   carga_horaria!: number;
 
-  @Column({ type: 'blob', nullable: true })
-  matriz_curricular!: Buffer;
+  @Column({ type: 'text', nullable: true })
+  matriz_curricular!: string;
 
-  @OneToMany(() => Matricula, (matricula) => matricula.curso)
-  matriculas!: Matricula[];
+  @Column({ type: 'enum', enum: ['ativo', 'inativo'], default: 'ativo' })
+  status!: 'ativo' | 'inativo';
+
+  @OneToMany(() => Turma, (turma) => turma.curso)
+  turmas!: Turma[];
 }
