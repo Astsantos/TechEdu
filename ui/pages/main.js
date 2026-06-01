@@ -14,9 +14,9 @@ const respostas = {
     'suporte':   'Estou aqui para ajudar! Me diga qual é a sua dúvida.',
     'contato':   'Você pode nos contatar pelo e-mail: suporte@techedu.com.br',
     'email':     'Nosso e-mail é: suporte@techedu.com.br',
-    'tchau':     'Até logo! Qualquer dúvida é só chamar 😊',
-    'obrigado':  'Por nada! Estamos sempre à disposição 😊',
-    'obrigada':  'Por nada! Estamos sempre à disposição 😊',
+    'tchau':     'Até logo! Qualquer dúvida é só chamar ',
+    'obrigado':  'Por nada! Estamos sempre à disposição ',
+    'obrigada':  'Por nada! Estamos sempre à disposição ',
 };
 
 /*função que pega as respostas*/
