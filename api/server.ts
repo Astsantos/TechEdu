@@ -1,21 +1,26 @@
 import "reflect-metadata";
 import "dotenv/config";
+import cors from 'cors';
 import express from "express";
 import { AppDataSource } from "./data-source";
 import cursoRoutes from "./src/routes/cursoRoute";
 
 const app = express();
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 app.use(express.json());
 
-// Inicia a conexão com o banco ANTES de subir o servidor
+app.get('/teste', (req, res) => res.json({ ok: true }));
+
 AppDataSource.initialize()
   .then(() => {
     console.log("✅ Banco de dados conectado!");
-
-    // Rotas
     app.use("/api", cursoRoutes);
-
-    // Inicia o servidor só após conectar ao banco
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
@@ -23,5 +28,5 @@ AppDataSource.initialize()
   })
   .catch((err) => {
     console.error("❌ Erro ao conectar ao banco:", err);
-    process.exit(1); // encerra se não conseguir conectar
+    process.exit(1);
   });

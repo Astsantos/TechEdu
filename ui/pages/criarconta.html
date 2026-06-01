@@ -10,24 +10,67 @@
 <body>
 
 <div class="register-page">
-    <div class="register-card">
-        <h2 class="register-title">Cadastre-se</h2>
-        <form class="register-form" action="index.html">
-            <label class="register-label">E-mail:</label>
-                <input class="register-input" type="email">
-            <label class="register-label">Senha:</label>
-                <input class="register-input" type="password">
-            <label class="register-label">Confirme a Senha:</label>
-                <input class="register-input" type="confitmpassword">            
-            <button class="register-btn" type="submit">Continue »</button>
-            <div class="register-divider">
-                <span>OR</span>
-            </div>
-            <button class="register-btn1">Continuar com o Google »</button>
-            <button class="register-btn1">Continuar com o GitHub »</button>
-        </form>
+  <div class="register-card">
+    <h2 class="register-title">Cadastre-se</h2>
+    <div class="register-form">
+      <label class="register-label">Nome:</label>
+      <input class="register-input" type="text" id="reg-nome">
+      <label class="register-label">E-mail:</label>
+      <input class="register-input" type="email" id="reg-email">
+      <label class="register-label">CPF:</label>
+      <input class="register-input" type="text" id="reg-cpf" maxlength="11">
+      <label class="register-label">Senha:</label>
+      <input class="register-input" type="password" id="reg-senha">
+      <label class="register-label">Confirme a Senha:</label>
+      <input class="register-input" type="password" id="reg-confirma">
+      <p id="reg-erro" style="color:red; display:none;"></p>
+      <p id="reg-ok" style="color:green; display:none;"></p>
+      <button class="register-btn" onclick="fazerCadastro()">Continue »</button>
+      <div class="register-divider"><span>OR</span></div>
+      <button class="register-btn1">Continuar com o Google »</button>
+      <button class="register-btn1">Continuar com o GitHub »</button>
     </div>
+  </div>
 </div>
+
+<script src="api.js"></script>
+<script>
+async function fazerCadastro() {
+  const nome     = document.getElementById('reg-nome').value;
+  const email    = document.getElementById('reg-email').value;
+  const cpf      = document.getElementById('reg-cpf').value;
+  const senha    = document.getElementById('reg-senha').value;
+  const confirma = document.getElementById('reg-confirma').value;
+  const erro     = document.getElementById('reg-erro');
+  const ok       = document.getElementById('reg-ok');
+
+  erro.style.display = 'none';
+  ok.style.display   = 'none';
+
+  if (!nome || !email || !cpf || !senha) {
+    erro.style.display = 'block';
+    erro.textContent = 'Preencha todos os campos.';
+    return;
+  }
+
+  if (senha !== confirma) {
+    erro.style.display = 'block';
+    erro.textContent = 'As senhas não coincidem.';
+    return;
+  }
+
+  const resultado = await cadastrarUsuario({ nome, email, cpf, senha, tipo: 'aluno' });
+
+  if (resultado.id) {
+    ok.style.display = 'block';
+    ok.textContent = 'Cadastro realizado! Redirecionando...';
+    setTimeout(() => window.location.href = 'login.html', 1500);
+  } else {
+    erro.style.display = 'block';
+    erro.textContent = resultado.error || 'Erro ao cadastrar.';
+  }
+}
+</script>
 
 </body>
 </html>
