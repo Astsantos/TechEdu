@@ -577,17 +577,6 @@ margin-bottom:2rem;
     margin-top: 2rem;
 }
 
-    /*parte lateral
-
-.chat-sidebar{
-    width: 40rem;
-    height: 65rem;
-    background: #7E3737;
-    border-radius: 1.5rem;
-    padding: 1rem;
-
-}*/
-
     /*mensagens*/
 
 #historic {
@@ -738,6 +727,10 @@ margin-bottom:2rem;
 
 .btn-submit:hover{
     cursor: pointer;
+}
+
+.top-bar h3{
+    color: #410303;
 }
 
 /*area do aluno*/
