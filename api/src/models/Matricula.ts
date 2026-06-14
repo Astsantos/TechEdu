@@ -1,24 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, ManyToMany } from 'typeorm';
-import { Curso } from './Curso';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Usuario } from './Usuario';
+import { Turma } from './Turma';
 
-@Entity()
+@Entity('Matricula')
 export class Matricula {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn({ unsigned: true })
+  id!: number;
 
-  @Column({ type: 'date' })
-  data: Date; // ou string 'YYYY-MM-DD' dependendo da necessidade
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+  data_matricula!: Date;
 
-  @Column()
-  cursoId: number; // chave estrangeira explícita
+  @Column({ type: 'enum', enum: ['ativa', 'cancelada'], default: 'ativa' })
+  status!: 'ativa' | 'cancelada';
 
-  @Column()
-  usuarioId: number;
+  @ManyToOne(() => Usuario, (usuario) => usuario.matriculas, { onDelete: 'RESTRICT' })
+  @JoinColumn({ name: 'usuario_id' })
+  usuario!: Usuario;
 
-  @ManyToOne(() => Curso, (curso) => curso.matriculas, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'cursoId' })
-  curso: Curso;
-
-  @ManyToMany
+  @ManyToOne(() => Turma, (turma) => turma.matriculas, { onDelete: 'RESTRICT' })
+  @JoinColumn({ name: 'turma_id' })
+  turma!: Turma;
 }

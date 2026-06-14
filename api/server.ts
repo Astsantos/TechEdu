@@ -1,21 +1,32 @@
-import express from 'express';
-import { AppDataSource } from './data-source';
-import cursoRoutes from './src/routes/cursoRoute';
-import { errorHandler } from './middleware/errorHandler';
+import "reflect-metadata";
+import "dotenv/config";
+import cors from 'cors';
+import express from "express";
+import { AppDataSource } from "./data-source";
+import cursoRoutes from "./src/routes/cursoRoute";
 
 const app = express();
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 app.use(express.json());
 
-// Initialize database connection
+app.get('/teste', (req, res) => res.json({ ok: true }));
+
 AppDataSource.initialize()
-  .then(() => console.log('Database connected'))
-  .catch(err => console.error(err));
-
-// Routes
-app.use('/api', cursoRoutes);
-
-// Global error handler (should be last)
-app.use(errorHandler);
-
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  .then(() => {
+    console.log("✅ Banco de dados conectado!");
+    app.use("/api", cursoRoutes);
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Erro ao conectar ao banco:", err);
+    process.exit(1);
+  });

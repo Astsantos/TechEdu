@@ -1,22 +1,23 @@
 import { Request, Response, NextFunction } from 'express';
 
 export const validateCurso = (req: Request, res: Response, next: NextFunction) => {
-  const { name, description, workload } = req.body;
+  const { nome_curso, descricao_curso, carga_horaria } = req.body;
 
-  if (!name || name.length > 50) {
-    return res.status(400).json({ error: 'Nome do curso é obrigatório e deve ter até 50 caracteres.' });
+  if (!nome_curso || nome_curso.trim() === '') {
+    return res.status(400).json({ error: 'O campo nome_curso é obrigatório.' });
   }
-  if (!description || description.length > 255) {
-    return res.status(400).json({ error: 'Descrição do curso é obrigatório e deve ter até 255 caracteres.' });
+
+  if (!descricao_curso || descricao_curso.trim() === '') {
+    return res.status(400).json({ error: 'O campo descricao_curso é obrigatório.' });
   }
-  if (!workload || isNaN(Number(workload))) {
-    return res.status(400).json({ error: 'Carga horária deve ser um número e precisar ser o total de horas.' });
+
+  if (!carga_horaria || isNaN(Number(carga_horaria))) {
+    return res.status(400).json({ error: 'O campo carga_horaria deve ser um número.' });
   }
+
   if (!req.file) {
-    return res.status(400).json({ error: 'Arquivo da matriz curricular é obrigatório.' });
+    return res.status(400).json({ error: 'O arquivo matriz_curricular é obrigatório.' });
   }
 
-  // Convert workload to integer
-  req.body.workload = parseInt(workload, 10);
   next();
 };
