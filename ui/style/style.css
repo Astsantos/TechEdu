@@ -577,17 +577,6 @@ margin-bottom:2rem;
     margin-top: 2rem;
 }
 
-    /*parte lateral
-
-.chat-sidebar{
-    width: 40rem;
-    height: 65rem;
-    background: #7E3737;
-    border-radius: 1.5rem;
-    padding: 1rem;
-
-}*/
-
     /*mensagens*/
 
 #historic {
@@ -643,52 +632,6 @@ margin-bottom:2rem;
     padding: 0 0.3rem;
 }
 
-    /*Tentativa de chat
-
-#historic{
-    position:absolute;
-    top:1rem;
-    left:1rem;
-    right:1rem;
-    bottom:8rem;
-    overflow-y:auto;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-}
-
-.box-my-message{
-    display:flex;
-    justify-content:flex-end;
-    width:100%;
-}
-
-.box-response-message{
-    display:flex;
-    justify-content:flex-start;
-    width:100%;
-}
-
-.my-message{
-    max-width:100%;
-    padding:1rem;
-    border-radius:15px 15px 0 15px;
-    background:#ffffff;
-    color:#000000;
-    font-size:1.4rem;
-    word-wrap:break-word;
-}
-
-.chat-message{
-    max-width:100%;
-    padding:1rem;
-    border-radius:15px 15px 15px 0;
-    background:#ffffff;
-    color:#000000;
-    font-size:1.4rem;
-    word-wrap:break-word;
-}*/
-
     /*balão de conversa*/
 
 .chat-main{
@@ -738,6 +681,10 @@ margin-bottom:2rem;
 
 .btn-submit:hover{
     cursor: pointer;
+}
+
+.top-bar h3{
+    color: #410303;
 }
 
 /*area do aluno*/
